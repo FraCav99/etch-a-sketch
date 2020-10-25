@@ -2,6 +2,9 @@ const gridContainer = document.querySelector('.grid-container');
 const displaySize = document.getElementById('show-size');
 
 const resetBtn = document.getElementById('reset');
+const randomFillBtn = document.getElementById('random__fill');
+
+const colorPicker = document.getElementById('color');
 
 const sizeValueInput = document.getElementById('size');
 let gridSize = +sizeValueInput.value;
@@ -23,11 +26,23 @@ sizeValueInput.oninput = () => {
 }
 
 resetBtn.addEventListener('click', resetGrid);
+randomFillBtn.addEventListener('click', setRandomColor);
 
 function applyColor(element) {
     element.addEventListener('mouseover', () => {
-        element.classList.add('hover-effect');
+        element.style.backgroundColor = colorPicker.value;
     });
+}
+
+function getRandomColor() {
+    let randomColor = Math.floor(Math.random()*16777215).toString(16);
+    return randomColor;
+}
+
+function setRandomColor() {
+    for (let gridItem of gridContainer.childNodes) {
+        gridItem.style.backgroundColor = '#' + getRandomColor();
+    }
 }
 
 function regenerateGrid() {
@@ -40,9 +55,7 @@ function regenerateGrid() {
 
 function resetGrid() {
     for (let gridItem of gridContainer.childNodes) {
-        if (gridItem.classList) {
-            gridItem.classList.remove('hover-effect');
-        }
+        gridItem.style.backgroundColor = 'white'
     }
 }
 
