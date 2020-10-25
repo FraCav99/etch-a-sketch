@@ -25,14 +25,16 @@ sizeValueInput.oninput = () => {
     generateGrid();
 }
 
+gridContainer.addEventListener('mouseover', e => {
+    const target = e.target;
+
+    target.matches(".grid-item") ? 
+    target.style.backgroundColor = colorPicker.value : 
+    null;
+});
+
 resetBtn.addEventListener('click', resetGrid);
 randomFillBtn.addEventListener('click', setRandomColor);
-
-function applyColor(element) {
-    element.addEventListener('mouseover', () => {
-        element.style.backgroundColor = colorPicker.value;
-    });
-}
 
 function getRandomColor() {
     let randomColor = Math.floor(Math.random()*16777215).toString(16);
@@ -64,7 +66,6 @@ function generateGrid() {
         for (let j = 0; j < gridSize; j++) {
             let gridItem = document.createElement('div');
             gridItem.classList.add('grid-item');
-            applyColor(gridItem);
             gridContainer.append(gridItem);
         }
     }
