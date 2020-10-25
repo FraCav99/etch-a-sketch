@@ -4,33 +4,42 @@
     box-sizing: border-box;
 }
 
+body {
+    background-color: rgb(94, 94, 94);
+    font-family: 'Comic Neue', cursive;
+}
+
 h1 {
     margin: 40px 0px;
     text-align: center;
+    font-size: 50px;
+    font-weight: bold;
+    color: rgb(219, 219, 219);
 }
 
 main {
-    border: 1px solid blue;
     display: flex;
     flex-direction: column;
 }
 
 .settings {
-    border: 1px solid brown;
     text-align: center;
     padding: 20px 10px 0px 10px;
     order: 2;
+    color: rgb(219, 219, 219);
+    font-size: 20px;
 }
 
 .settings #settings-title {
     font-weight: bold;
-    font-size: 20px;
+    font-size: 30px;
     margin-bottom: 20px;
 }
 
 
 .settings-tabs {
-    border: 1px solid teal;
+    border: 3px solid rgb(180, 180, 180);
+    border-radius: 5px;
     display: flex;
     justify-content: space-evenly;
 }
@@ -40,25 +49,67 @@ main {
     flex-direction: column;
 }
 
+.settings-tabs button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(24, 206, 85);
+    color: rgb(255, 255, 255);
+}
+
 .settings-tabs #reset {
+    cursor: pointer;
+    align-self: center;
+    padding: 10px 30px;
+}
+
+.settings-tabs #random__fill {
     cursor: pointer;
     align-self: center;
 }
 
+.settings-tabs .color-picker {
+    text-align: center;
+    align-self: center;
+}
+
+.settings-tabs #color {
+    display: block;
+    margin: 10px auto 0px auto;
+}
+
 .grid-container {
     display: grid;
-    background-color: lightseagreen;
     width: 50vw;
     height: 75vh;
     margin: auto;
-    border: 3px solid red;
+    border: 3px solid rgb(161, 161, 161);
+    border-radius: 5px;
 }
 
 .grid-item {
     border: 1px solid black;
+    background-color: white;
     width: 100%;
 }
 
-.hover-effect {
-    background-color: blueviolet;
+
+@media screen and (max-width: 700px) {
+    .grid-container {
+        width: 95vw;
+    }
+
+    .settings-tabs {
+        padding: 20px;
+        flex-direction: column;
+    }
+
+    .settings-tabs .size-tab {
+        margin-bottom: 30px;
+    }
+
+    .settings-tabs #reset,
+    .settings-tabs #random__fill {
+        margin-bottom: 30px;
+    }
 }
