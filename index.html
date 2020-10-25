@@ -3,6 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <title>Etch-a-Sketch</title>
 </head>
@@ -21,6 +25,12 @@
                 </div>
 
                 <button id="reset">Reset</button>
+                <button id="random__fill">Random Fill</button>
+
+                <div class="color-picker">
+                    <label for="color">Choose a color</label>
+                    <input type="color" id="color" value="#000">
+                </div>
             </div>
 
         </div>
@@ -32,10 +42,3 @@
     <script src="script.js"></script>
 </body>
 </html>
-
-    <!-- <div id="size-display"></div>
-
-    <div class="settings">
-        <label for="size">Size</label>
-        <input type="range" id="size" min="1" max="50" value="16">
-    </div> -->
